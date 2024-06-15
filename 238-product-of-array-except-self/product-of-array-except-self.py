@@ -15,10 +15,3 @@ class Solution:
             right *= nums[i]
 
         return ans
-
-        #[1,2,3,4]
-        #size = 4
-        #ans = 12
-        #nums[1] =12
-        #j = 0
-        #
