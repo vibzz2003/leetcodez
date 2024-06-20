@@ -7,3 +7,7 @@ class Solution:
             if index < len(a2) and a1[i]==a2[index]:
                 index+=1
         return index == len(a2)
+        #index maintain rakha
+        #0 se initialise kia
+        #agar index a2 ki len se chotta hai and a1[i] == a2[index], tabh index ko increase kiya
+        #and return kara when index becomes equal to len of a2 agar nahi toh false
