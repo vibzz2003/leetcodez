@@ -9,23 +9,31 @@ class Solution:
         col_end = len(matrix[0])
         res = []
 
-        while row_end>row_begin and col_end>col_begin:
+        while row_end > row_begin and col_end > col_begin:
+            # Traverse the top row
             for i in range(col_begin, col_end):
                 res.append(matrix[row_begin][i])
-            for j in range(row_begin + 1, row_end - 1):
-                res.append(matrix[j][col_end-1])
-            if row_end != row_begin+1:
-                for i in range(col_end-1, col_begin-1, -1):
-                    res.append(matrix[row_end-1][i])
-            if col_begin != col_end-1:
-                for j in range(row_end-2, row_begin, -1):
+            row_begin += 1
+            
+            # Traverse the right column
+            for j in range(row_begin, row_end):
+                res.append(matrix[j][col_end - 1])
+            col_end -= 1
+            
+            if row_begin < row_end:
+                # Traverse the bottom row
+                for i in range(col_end - 1, col_begin - 1, -1):
+                    res.append(matrix[row_end - 1][i])
+                row_end -= 1
+            
+            if col_begin < col_end:
+                # Traverse the left column
+                for j in range(row_end - 1, row_begin - 1, -1):
                     res.append(matrix[j][col_begin])
-            row_begin+=1
-            row_end-=1
-            col_begin+=1
-            col_end-=1
+                col_begin += 1
 
         return res
+
 
         #for i in range (1st column to 3rd column)
         #append matrix[0][0], m[0][1], m[0][2]
